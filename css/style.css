@@ -1,0 +1,341 @@
+
+/* Обнуление стилей */
+*,
+*::before *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+img {
+    vertical-align: top;
+}
+
+html,body {
+    height: 100%;
+}
+
+/* По умолчанию 16 рх */
+html {
+    font-size: 16px;
+}
+
+body {
+  line-height: 1;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+
+} 
+ 
+.wrapper {
+    min-height: 100%;  
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* .........lesson7.......... */
+
+.block {
+    margin: 10px ;
+padding: 30px;
+background-color: aqua;
+display: inline-block;
+}
+
+
+
+
+
+/* Псевдоклассы */
+/* 1. Псевдоклассы состояния */
+/* :hover Оживляет элементы, реагирует на наведение курсора.
+Часто применяется для ссылок и для любого другого элемента.
+*/
+
+.link:hover {
+    /* opacity: 0; */
+color: red;
+}
+
+/* visited Срабатывает для посещённых ссылок */
+
+.link:visited {
+ color: white;
+}
+
+/* Замечание: Из-за причин приватности, браузеры строго ограничивают
+стили, которые вы можете применить к элементу, используя этот псевдокласс 
+только color, backgtound-color, border-color, border-bottom-color, border-left-color,
+border-right-color, fill и stroke. Заметьте также что альфа канал будет игнорироваться:
+будет использоваться альфа-канал, используемый для непосещенных ссылок вместо него
+(но если прозрачность - 0, то в этом случае игнорируется весь цвет, и один из ипользуемых стилей 
+для непосещённых ссылок)
+*/
+
+
+/* 
+:active
+Срабатывает при нажатии на элемент.
+В основоном применяется к ссылкам и кнопкам.
+*/
+
+.link:active {
+    color: black;
+}
+
+
+
+.button {
+    border-radius: 5px;
+    padding: 20px 30px;
+    color: blue;
+    background-color: cornflowerblue;
+    box-shadow: 0px 4px 0px goldenrod;
+    display: inline-block;
+    position: relative;
+    top: 0;
+}
+
+ 
+.button:hover {
+    background-color: rgb(19, 42, 84);
+}
+
+
+.button:active {
+    top: 4px;
+    box-shadow: 0px 4px 0px goldenrod;
+}
+
+
+/* :focus 
+Срабатывает при получении элементом фокуса.
+Часто применяется к элементам форм. Например инпутам.
+Таким образом можно разукрасить активную ссылку.
+*/
+.link2:focus {
+outline: 10px dotted red;
+color: rgb(201, 219, 154);
+}
+
+/* :target
+Срабатывает когда элемент является обьектом на который ссылаются */
+
+.window {
+    padding: 20px;
+    color: crimson;
+    background-color: beige;
+    display: none;
+}
+
+.window:target {
+    display: block;
+}
+
+/* Псевдокласс положения в коде */
+
+
+.text {
+    margin: 0px 0px 50px 0px;
+}
+
+.text p {
+    margin: 0px 0px 20px 0px;
+}
+
+
+.list {
+}
+
+
+.list li {
+    margin: 0px 0px 20px 0px;
+}
+
+/* :first-child
+Обращение к первому элементу в блоке 
+К примеру обращение к первому параграфу из большего количества.
+*/
+
+.text p:first-child {
+color: red;
+}
+
+/* Первый в блоке тег Р, даже если выше него есть другие теги
+.text p: first-of-type {
+color: red; }
+*/
+
+.text p:first-of-type {
+   color: red;
+}
+
+
+/* Любой обьект который первый внутри родителя
+.text *:first-child { 
+    color:red;
+} */
+   
+/* :last-child
+Обращение к последнему элементу в блоке
+*/
+
+.text p:last-child {
+    color:blue;
+}
+
+/* Первый в блоке тег Р, даже если выше него есть другие теги
+.text p: last-of-type {
+color: red; }
+*/
+
+/* Убираем лишний отступ. Вариант №1*/
+.text *:last-child {
+    margin-bottom: 0;
+}
+
+
+/* :nth-child(порядковый номер элемента)
+Обращение к конкретным элемнтам в блоке. */ 
+
+/* odd - нечетные */
+/* even - четные */
+
+.text p:nth-child(odd) {
+    color: rgb(13, 220, 37); 
+}
+
+/* Убираем лишний отступ. Вариант №2
+/* not - "все кроме" */
+
+.text p:not (:last-child) {
+    margin-bottom: 0px 0px 20px 0px;
+} 
+
+ /* Пcевдоэлементы 
+
+Псевдоэлемент :first-line задает стиль первой строки форматированного текста.
+Длина этой строки зависит от многих факторов, таких как размер окна браузера
+,ширина блока, языка, используемого шрифта и т.д.
+ В правилах стиля доступно использовать только свойства, относящиеся к шрифту,
+ изменению цвета текта и фона. */
+
+
+ .content {
+    margin: 0px 0px 30px 0px;
+}
+
+.content::first-line {
+    color: red;
+}
+
+/* Псевдоэлемент ::first-letter определяет стиль первого символа в тексте элемента, 
+к которому добавляется. К этому псевдоэлементу могут применяться только стилевые свойства,
+связаные со свойствами шрифта, полями, отступами, границами, цветом и фоном.
+*/
+
+.content::first-letter {
+    color: blue;
+    font-size: 50px;
+}
+
+
+/* ::after ::before - строчные!!!!
+использование content ОБЯЗАТЕЛЬНО! */
+/* :"afterи ::before они соответственно добавляют 
+новое содержимое спереди или в конце содержимого элемента. */
+
+.content::before { 
+    content: "'" ;
+}
+
+.content::after {
+    content: "'" ;
+}
+
+.title {
+     margin: 0px 0px 40px 0px;
+     font-size: 40px;
+     font-weight: 900;
+}
+
+.title::after {
+    background-color: blue;
+    height: 2px;
+    width: 56px;
+    margin: 15px 0px 0px 0px;
+    content: "";
+    display:block;
+}
+
+.list li {
+    padding: 0px 0px 30px 0px;
+}
+
+.list li::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px 15px 0px 0px;
+    border-radius: 50%;
+}
+
+.list li:hover::before {
+  background-color: blue;
+  border-radius: 0;
+}
+
+.num-list {
+    counter-reset: item;
+}
+
+/* С помощью свойства counter-reset создаются новые счётчики на элементе. */
+
+.num-list li (:last-child) {
+    margin: 0px 0px 20px 0px;
+}
+
+.num-list li:not(:last-child) {
+    margin: 0px 0px 20px 0px;
+}
+
+.num-list li::before {
+    counter-increment: item;
+    content: counter(item) ")";
+    display: inline-block;
+    vertical-align: top;
+    color:red;
+    margin: 0px 20px 0px 0px;
+}
+
+ 
+/* content cвойство, с помощью которого можно добавить на страницу то, 
+чего нет в HTML-разметке.
+Можно использовать предварительно определенное содержимое (например, открывающие кавычки), строку, 
+внешний ресурс (например, изображение), счетчик или значение атрибута. */
